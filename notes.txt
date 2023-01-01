@@ -1,0 +1,52 @@
+What other files would be required for this add-on based on this manifest.json?
+
+- In addition to the manifest.json file, you will need to create the HTML file for the sidebar specified in the manifest.json file. In this example, the sidebar HTML file is called sidebar.html.
+- You will also need to include any additional resources that the sidebar HTML file references, such as JavaScript files, CSS files, and image files.
+- If your add-on requires access to the Google Calendar API or any other Google APIs, you will also need to set up a Google Cloud project and enable the necessary APIs. You will then need to create OAuth client credentials and include the client ID in the manifest.json file.
+- Finally, if you want to distribute your add-on, you will need to package it into a ZIP file and publish it to the Google Workspace Marketplace.
+
+
+How do I test my Google Calendar add-on?
+
+-  To test your Google Calendar add-on, you will need to install it in your Google Calendar. Here are the steps to do this:
+
+1. Go to the Google Workspace Marketplace and sign in with your Google account.
+2.  Click on the "My Marketplace Apps" tab.
+3. Click on the "Upload an app" button.
+4. Select the ZIP file containing your add-on and click "Upload."
+5. Once the add-on is uploaded, you can click on the "Install" button to install it in your Google Calendar.
+
+- Alternatively, if you are still developing your add-on and do not want to publish it to the Google Workspace Marketplace, you can use the Google Apps Script Developer Hub to test your add-on. The Developer Hub allows you to install and test your add-on in your Google Calendar without publishing it.
+- Once your add-on is installed, you can test it by opening your Google Calendar and looking for the sidebar or other functionality that your add-on provides. You can also use the Developer Hub to view logs and debug any issues that you encounter.
+
+
+Example manifest.json:
+
+{
+    "manifest_version": 1,
+    "name": "My Calendar Add-on",
+    "description": "This add-on adds a sidebar to Google Calendar",
+    "version": "1.0.0",
+    "author": "Your Name",
+    "icons": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "container": ["CALENDAR"],
+    "calendar": {
+      "sidebar": {
+        "default_height": "500",
+        "url": "sidebar.html?mode=other"
+      }
+    },
+    "permissions": [
+      "https://www.googleapis.com/auth/calendar.events",
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ],
+    "oauthScopes": [
+      "https://www.googleapis.com/auth/calendar.events",
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ]
+  }

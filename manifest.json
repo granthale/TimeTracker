@@ -1,0 +1,60 @@
+{
+    "addOns": {
+        "calendar": {
+        "createSettingsUrlFunction": "getConferenceSettingsPageUrl",
+        "conferenceSolution": [{
+            "id": "my-video-conf",
+            "logoUrl": "https://lh3.googleusercontent.com/...",
+            "name": "My Video Conference",
+            "onCreateFunction": "onCreateMyVideoConference"
+        }, {
+            "id": "my-streamed-conf",
+            "logoUrl": "https://lh3.googleusercontent.com/...",
+            "name": "My Streamed Conference",
+            "onCreateFunction": "onCreateMyStreamedConference"
+        }],
+        "currentEventAccess": "READ_WRITE",
+        "eventOpenTrigger": {
+            "runFunction": "onCalendarEventOpen"
+        },
+        "eventUpdateTrigger": {
+            "runFunction": "onCalendarEventUpdate"
+        },
+        "eventAttachmentTrigger": {
+            "label": "My Event Attachment",
+            "runFunction": "onCalendarEventAddAttachment"
+        },
+        "homepageTrigger": {
+            "runFunction": "onCalendarHomePageOpen",
+            "enabled": true
+        }
+        },
+        "common": {
+        "homepageTrigger": {
+            "runFunction": "onDefaultHomePageOpen",
+            "enabled": true
+        },
+        "layoutProperties": {
+            "primaryColor": "#ff392b",
+            "secondaryColor": "#d68617"
+        },
+        "logoUrl": "https://ssl.gstatic.com/docs/script/images/logo/script-64.png",
+        "name": "Demo Google Workspace Add-on",
+        "openLinkUrlPrefixes": [
+            "https://mail.google.com/",
+            "https://script.google.com/a/google.com/d/",
+            "https://drive.google.com/a/google.com/file/d/",
+            "https://en.wikipedia.org/wiki/",
+            "https://www.example.com/"
+        ],
+        "universalActions": [{
+            "label": "Open settings",
+            "runFunction": "getSettingsCard"
+        }, {
+            "label": "Open Help URL",
+            "openLink": "https://www.example.com/help"
+        }],
+        "useLocaleFromApp": true
+        }
+    }
+}
