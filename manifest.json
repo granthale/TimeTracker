@@ -1,32 +1,22 @@
 {
+    "name": "TimeTracker",
+    "description": "The goal of this project is to create a free Google Calendar add-on that enables tracking of how a given person spends their time.",
+    "version": "0.1.0",
+    "author": "Grant Hale and Gabe Kosmacher",
+    "icons": {
+        "16": "icon16.png",
+        "32": "icon32.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "container": [
+        "CALENDAR"
+    ],
     "addOns": {
         "calendar": {
-        "createSettingsUrlFunction": "getConferenceSettingsPageUrl",
-        "conferenceSolution": [{
-            "id": "my-video-conf",
-            "logoUrl": "https://lh3.googleusercontent.com/...",
-            "name": "My Video Conference",
-            "onCreateFunction": "onCreateMyVideoConference"
-        }, {
-            "id": "my-streamed-conf",
-            "logoUrl": "https://lh3.googleusercontent.com/...",
-            "name": "My Streamed Conference",
-            "onCreateFunction": "onCreateMyStreamedConference"
-        }],
         "currentEventAccess": "READ_WRITE",
         "eventOpenTrigger": {
             "runFunction": "onCalendarEventOpen"
-        },
-        "eventUpdateTrigger": {
-            "runFunction": "onCalendarEventUpdate"
-        },
-        "eventAttachmentTrigger": {
-            "label": "My Event Attachment",
-            "runFunction": "onCalendarEventAddAttachment"
-        },
-        "homepageTrigger": {
-            "runFunction": "onCalendarHomePageOpen",
-            "enabled": true
         }
         },
         "common": {
@@ -39,7 +29,6 @@
             "secondaryColor": "#d68617"
         },
         "logoUrl": "https://ssl.gstatic.com/docs/script/images/logo/script-64.png",
-        "name": "Demo Google Workspace Add-on",
         "openLinkUrlPrefixes": [
             "https://mail.google.com/",
             "https://script.google.com/a/google.com/d/",
@@ -56,5 +45,11 @@
         }],
         "useLocaleFromApp": true
         }
-    }
+    },
+    "oauthScopes": [
+        "https://www.googleapis.com/auth/calendar.events/readonly",
+        "https://www.googleapis.com/auth/calendar.addons.execute",
+        "https://www.googleapis.com/auth/calendar.addons.current.event.read",
+        "https://www.googleapis.com/auth/calendar.addons.current.event.write"
+    ]
 }
